@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="@color/bg_dark">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@android:color/white"
+        android:id="@+id/FLTitle">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="14dp"
+            android:drawableStart="@drawable/ic_alert_summary"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:singleLine="true"
+            android:text="@string/title_alert_summary"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/check_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/day_check"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="Day"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingEnd="20dp" />
+
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/week_check"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="Week"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingEnd="20dp" />
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/state_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="14dp"
+            android:drawableStart="@drawable/ic_bed_small"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:singleLine="true"
+            android:text="@string/bed"
+            android:textColor="@color/bed"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/date_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/date_left"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentStart="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/app_name"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_left"/>
+
+        <ImageButton
+            android:id="@+id/date_right"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/app_name"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_right"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_toEndOf="@id/date_left"
+            android:layout_toStartOf="@id/date_right"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Today"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/navigation_container"
+            android:clipToPadding="false"/>
+
+        <LinearLayout
+            android:id="@+id/navigation_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="3dp"
+            android:paddingBottom="5dp">
+
+            <ImageButton
+                android:id="@+id/score_link"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"
+                android:cropToPadding="false"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_health_score"/>
+
+            <ImageButton
+                android:id="@+id/state_link"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"
+                android:cropToPadding="false"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_heart_blue"/>
+
+            <ImageButton
+                android:id="@+id/alert_link"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"
+                android:cropToPadding="false"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_graph" />
+
+        </LinearLayout>
+
+        <com.bethere24system.widget.FilterView
+            android:id="@+id/filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone"
+            android:background="#60000000"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

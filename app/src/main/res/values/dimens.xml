@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins -->
+    <dimen name="margin_default_horizontal">10dp</dimen>
+    <dimen name="margin_default_vertical">10dp</dimen>
+    <dimen name="poll_detail_img">120dp</dimen>
+
+    <!-- Font size -->
+    <dimen name="font_size_spashscreen">22sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_fragment_title">20sp</dimen>
+    <dimen name="font_size_edittext">14sp</dimen>
+    <dimen name="font_size_title">18sp</dimen>
+    <dimen name="font_size_button">20sp</dimen>
+    <dimen name="font_size_navigation_drawer_lable">16sp</dimen>
+
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="font_size_24">24sp</dimen>
+    <dimen name="font_size_30">30sp</dimen>
+    <dimen name="font_size_36">36sp</dimen>
+    <dimen name="font_size_48">48sp</dimen>
+
+    <!-- XML drawables -->
+    <dimen name="drawable_progressbar">50dp</dimen>
+    <dimen name="drawable_round_corner">6dp</dimen>
+    <dimen name="drawable_right_arrow">24dp</dimen>
+
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+
+    <dimen name="image_size_80">80dp</dimen>
+    <dimen name="image_size_100">100dp</dimen>
+    <dimen name="image_size_120">120dp</dimen>
+    <dimen name="image_size_150">150dp</dimen>
+    <dimen name="image_size_165">165dp</dimen>
+    <dimen name="image_size_200">200dp</dimen>
+    <dimen name="image_size_250">250dp</dimen>
+    <dimen name="image_size_300">300dp</dimen>
+    <dimen name="image_size_400">400dp</dimen>
+
+    <dimen name="image_size_circle_inner_120">140dp</dimen>
+    <dimen name="image_size_circle_out_250">300dp</dimen>
+    <dimen name="image_size_circle_tag_150">170dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_default_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_default_vertical"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_logo"/>
+
+            <EditText
+                android:id="@+id/username"
+                style="@style/myEditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_username"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/etxSignInPassword"
+                android:padding="@dimen/margin_default_horizontal"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_80"
+                android:textSize="@dimen/font_size_edittext"/>
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/myEditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default_vertical"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:padding="@dimen/margin_default_horizontal"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_80"
+                android:textSize="@dimen/font_size_edittext"/>
+
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/margin_default_horizontal"
+                android:text="@string/forgot_pswrd"
+                android:textColor="@color/app_theme_color"
+                android:textSize="@dimen/font_size_edittext"/>
+
+            <TextView
+                android:id="@+id/signIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_default_vertical"
+                android:background="@color/btn_signin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/margin_default_horizontal"
+                android:paddingTop="@dimen/margin_default_horizontal"
+                android:text="@string/signin"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_edittext"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/AppTheme.Progress.Main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/content_container"
+            android:layout_alignTop="@+id/content_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="170dp"
+            android:visibility="gone"
+            tools:background="#60ff00ff"
+            tools:visibility="visible"/>
+
+    </RelativeLayout>
+
+</ScrollView>

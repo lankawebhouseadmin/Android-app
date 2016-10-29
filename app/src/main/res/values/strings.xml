@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">BeThere24</string>
+    <string name="app_name_tm">BeThere24™</string>
+
+    <!-- For navigation drawer -->
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+
+    <!-- Other -->
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="retry">Retry</string>
+
+    <!-- Error messages -->
+    <string name="error_title">Error : </string>
+    <string name="error_technichal_problem">Having some technical problem</string>
+    <string name="error_internet_check">Internet connection is not availabe. Please enable wifi or internet data.</string>
+    <string name="error_required">Required</string>
+
+    <!-- Validation messages -->
+    <string name="validation_email">Enter valid email</string>
+    <string name="validation_password">Enter password</string>
+
+    <!-- Fragment Title -->
+    <string name="fragment_title_dashboard">Dashboard</string>
+
+    <string name="title_activity_health_summary">HealthSummaryActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="label_health_summary">Health Summary</string>
+    <string name="title_activity_health_score_detail">Health Score Details</string>
+    <string name="label_alert_summary">Alert Summary</string>
+    <string name="label_history">Historical Graphs</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="label_day">Day</string>
+    <string name="Label_week">Week</string>
+
+    <string name="label_btn_week">Week</string>
+    <string name="label_btn_month">Month</string>
+    <string name="label_btn_year">Year</string>
+
+    <string name="Label_filter">Filter</string>
+
+    <string name="label_history_7">Last 7 Days History</string>
+    <string name="label_history_hours">Hours</string>
+    <string name="label_history_dates">Dates</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- new strings -->
+    <!-- Login -->
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="username_test">rachel_stern</string>
+    <string name="password_test">rachel1234</string>
+    <string name="forgot_pswrd">Forgot Password?</string>
+    <string name="signin">Sign In</string>
+    <string name="title_signin">Sign In</string>
+    <string name="error_message_empty_username">Field \'username\' shouldn\'t be empty</string>
+    <string name="error_message_short_username">Field \'username\' shouldn\'t be less than 6 symbols</string>
+    <string name="error_message_empty_password">Field \'password\' shouldn\'t be empty</string>
+    <string name="error_message_short_password">Field \'password\' shouldn\'t be less than 6 symbols</string>
+    <string name="title_forgot_password">Forgot password</string>
+    <string name="message_forgot_password">Coming soon</string>
+
+    <!-- common -->
+    <string name="dialog_positive_button">OK</string>
+    <string name="error_title_common">Something goes wrong</string>
+    <string name="error_message_common">Please, check you internet connection or try again later</string>
+    <string name="bathroom">In Bathroom</string>
+    <string name="visitors">With Visitors</string>
+    <string name="dining">In Dining Area</string>
+    <string name="motion">In Motion</string>
+    <string name="bed">In Bedroom</string>
+    <string name="awayhome">Away From Home</string>
+    <string name="recliner">In Recliner</string>
+    <string name="medication">Taking Medication</string>
+    <string name="all">All</string>
+    <string name="score_very_good">Very good</string>
+    <string name="score_good">Good</string>
+    <string name="score_poor">Poor</string>
+    <string name="score_empty">Empty</string>
+    <string name="title_alert_summary">Alert Summary</string>
+    <string name="title_health_summary">Health Summary</string>
+    <string name="title_health_score">Health Score Details</string>
+    <string name="title_graph">Historical Graphs</string>
+    <string name="title_contact">Contact Information</string>
+    <string name="today">Today</string>
+
+</resources>

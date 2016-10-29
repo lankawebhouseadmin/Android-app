@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_menu"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/health_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_heart_blue"
+        android:padding="18dp"
+        android:drawablePadding="18dp"
+        android:text="Health Summary"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/bg_main"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bg_main"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/health_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_health_score"
+        android:padding="18dp"
+        android:drawablePadding="18dp"
+        android:text="Health Score Details"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/bg_main"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bg_main"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/alert_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_alert_summary"
+        android:padding="18dp"
+        android:drawablePadding="18dp"
+        android:text="Alert Summary"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/bg_main"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bg_main"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_graph"
+        android:padding="18dp"
+        android:drawablePadding="18dp"
+        android:text="Historical Graphs"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/bg_main"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bg_main"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_contact_info"
+        android:padding="18dp"
+        android:drawablePadding="18dp"
+        android:text="Contact Information"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/bg_main"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bg_main"/>
+
+</LinearLayout>

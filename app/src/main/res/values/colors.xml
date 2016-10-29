@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    <color name="colorPrimary">#3F51B5</color>
+        <color name="colorPrimaryDark">#303F9F</color>
+        <color name="colorAccent">#FF4081</color>-->
+
+    <color name="app_theme_color">#B6CB42</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="shadow">#d8d8d8</color>
+
+    <!-- material color -->
+    <color name="mt_gray_200">#EEEEEE</color>
+    <color name="mt_blue_gray_200">#B0BEC5</color>
+    <color name="mt_blue_gray_600">#546E7A</color>
+    <color name="mt_green_200">#A5D6A7</color>
+    <color name="mt_green_600">#43A047</color>
+    <color name="mt_light_blue_200">#81D4FA</color>
+    <color name="mt_light_blue_600">#039BE5</color>
+    <color name="mt_red_200">#ef9a9a</color>
+    <color name="mt_red_600">#e53935</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="button_background">#B6CB42</color> // for graphs button color
+    <color name="gray_80">#808080</color> // for graphs button color
+
+    <!-- new color table -->
+    <color name="bg_main">#ffeff6c4</color>
+    <color name="bg_dark">#ff252525</color>
+    <color name="bg_menu">#ff1f1f1f</color>
+    <color name="btn_signin">#ffb7cb42</color>
+    <color name="text_forgot_pswrd">#ffb7cb42</color>
+    <color name="text_dark">#ff565656</color>
+
+    <!--state colors -->
+    <color name="medication">#ff3d00a3</color>
+    <color name="dining">#ff2d6f00</color>
+    <color name="recliner">#ffba2a5c</color>
+    <color name="awayhome">#ffda521d</color>
+    <color name="visitors">#ff0290ce</color>
+    <color name="bed">#ff9b5d00</color>
+    <color name="bathroom">#ff0246ff</color>
+    <color name="motion">#ffaaac00</color>
+
+    <!-- score -->
+    <color name="score_good">#ffffc800</color>
+    <color name="score_very_good">#ff68ff00</color>
+    <color name="score_poor">#ffff0000</color>
+
+</resources>

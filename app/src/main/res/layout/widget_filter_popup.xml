@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/filter_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter_pointer"
+            android:layout_gravity="top|center_horizontal"
+            android:contentDescription="@string/app_name"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_marginTop="15dp"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_filter_layerlist"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/filter_item_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="56dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="@string/all"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:id="@+id/filter_item_all_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_bathroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_bathroom_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/bathroom"
+                    android:textColor="@color/bathroom"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_visitors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_visitors_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/visitors"
+                    android:textColor="@color/visitors"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_dining"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_dining_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/dining"
+                    android:textColor="@color/dining"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_motion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_motion_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/motion"
+                    android:textColor="@color/motion"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_bed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_bed_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/bed"
+                    android:textColor="@color/bed"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_awayhome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_awayhome_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/awayhome"
+                    android:textColor="@color/awayhome"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_recliner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_recliner_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/recliner"
+                    android:textColor="@color/recliner"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/btn_signin"/>
+
+                <TextView
+                    android:id="@+id/filter_item_medication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_medication_small"
+                    android:gravity="center_vertical|start"
+                    android:padding="14dp"
+                    android:text="@string/medication"
+                    android:textColor="@color/medication"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+</FrameLayout>
