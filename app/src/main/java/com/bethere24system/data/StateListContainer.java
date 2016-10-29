@@ -119,6 +119,10 @@ public class StateListContainer {
                     }
                 }
             }
+//            for (State state : arr.get(date.getTime())) {
+//                if (state.startTime.getHours() < NORMAL_TIME)
+//                    correctStates.add(state);
+//            }
 
             if (mDays.indexOf(date) > 0) {
                 List<State> arrState = arr.get(getPrevDate(date).getTime());

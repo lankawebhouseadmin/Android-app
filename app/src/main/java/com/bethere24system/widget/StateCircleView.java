@@ -59,7 +59,8 @@ public class StateCircleView extends FrameLayout {
 
         mDisplayWidth = DisplayUtils.getDisplaySize(getContext()).x;
 
-        for (int i = 0; i < StateType.values().length; i++) addToMainCircle(StateType.values()[i].getSmallWhiteIconRes(), i);
+        for (int i = 0; i < StateType.values().length; i++)
+            addToMainCircle(StateType.values()[i].getSmallWhiteIconRes(), i);
 
     }
 

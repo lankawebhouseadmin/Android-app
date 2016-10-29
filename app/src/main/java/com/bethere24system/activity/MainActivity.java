@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
         } else if (BuildConfig.BUILD_TYPE.equals("qa")) {
             mHolder.toolbar_title.setText(title + " " + "Uat");
         }
-
         // end Dennis
 
         // 2016 09 23 Arik
