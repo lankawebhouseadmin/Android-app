@@ -2,15 +2,11 @@ package com.bethere24system.data;
 
 import android.util.LongSparseArray;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.TimeZone;
 
 /**
  * Created by Administrator on 3/5/2016.
@@ -114,9 +110,14 @@ public class StateListContainer {
         List<State> correctStates = new ArrayList<>();
         if (type == StateType.SLEEPING) {
 
-            for (State state : arr.get(date.getTime())) {
-                if (state.startTime.getHours() < NORMAL_TIME)
-                    correctStates.add(state);
+            List<State> stateList = arr.get(date.getTime());
+            for (int i = 0; i < stateList.size(); i++) {
+                Object state = stateList.get(i);
+                if ((state != null) && (state instanceof State)) {
+                    if (((State)state).startTime.getHours() < NORMAL_TIME) {
+                        correctStates.add(((State)state));
+                    }
+                }
             }
 
             if (mDays.indexOf(date) > 0) {

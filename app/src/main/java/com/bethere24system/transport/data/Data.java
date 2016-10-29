@@ -32,6 +32,9 @@ public class Data {
     @SerializedName("id")
     private Integer mId;
 
+    @SerializedName("login_time")
+    private String mLoginTime;
+
     /**
      * 
      * @return
@@ -174,6 +177,23 @@ public class Data {
      */
     public void setId(Integer id) {
         this.mId = id;
+    }
+
+    /**
+     *
+     * @return
+     *      The mLoginTime
+     */
+    public String getLoginTime() {
+        return mLoginTime;
+    }
+
+    /**
+     *
+     * @param loginTime
+     */
+    public void setLoginTime(String loginTime) {
+        this.mLoginTime = loginTime;
     }
 
 }

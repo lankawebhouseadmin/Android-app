@@ -273,12 +273,13 @@ public class GraphsFragment extends Fragment implements CompoundButton.OnChecked
         int alertCount = 0;
 
         for (Alert alert : alerts) {
+            if (alert.stateType != null) {
+                if (alert.stateType.name().equals(type.name())) {
+                    alertCount++;
 
-            if (alert.stateType.name().equals(type.name())) {
-                alertCount++;
-
-                mCurrentState = mStateListContainer.getStates(alert.stateType).get(0);
-                mCurrentDate = alert.day;
+                    mCurrentState = mStateListContainer.getStates(alert.stateType).get(0);
+                    mCurrentDate = alert.day;
+                }
             }
         }
 

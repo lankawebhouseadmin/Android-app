@@ -37,6 +37,7 @@ public class BeThereApplication extends Application {
     private static BeThereApplication sInstance;
     private Retrofit mRetrofit;
     private DataContainer mData;
+    private String mLoginTime;
 
     public static BeThereApplication getInstance() {
         return sInstance;
@@ -80,6 +81,13 @@ public class BeThereApplication extends Application {
         return mData;
     }
 
+    public void setLoginTime(String loginTime) {
+        this.mLoginTime = loginTime;
+    }
+
+    public String getLoginTiem() {
+        return this.mLoginTime;
+    }
 
     public static class gsonUTCdateAdapter implements JsonSerializer<Date>,JsonDeserializer<Date> {
 

@@ -84,7 +84,13 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
         mHolder.progressLayout.setVisibility(View.GONE);
 
         String title = getResources().getString(R.string.app_name_tm);
-        if (BuildConfig.BUILD_TYPE.equals("debug")) mHolder.toolbar_title.setText(title + " " + "Dev");
+//        if (BuildConfig.BUILD_TYPE.equals("debug")) mHolder.toolbar_title.setText(title + " " + "Dev");
+        if (BuildConfig.BUILD_TYPE.equals("debug")) {
+            mHolder.toolbar_title.setText(title + " " + "Dev");
+        } else if (BuildConfig.BUILD_TYPE.equals("qa")) {
+            mHolder.toolbar_title.setText(title + " " + "Uat");
+        }
+
         // end Dennis
 
         // 2016 09 23 Arik

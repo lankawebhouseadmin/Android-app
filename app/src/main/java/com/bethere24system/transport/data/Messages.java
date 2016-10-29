@@ -33,15 +33,16 @@ public class Messages {
 
         if (score.getScore() <= 2) index = 2;
         else if (score.getScore() >= 8) index = 0;
+        if (type != null) {
+            try {
+                JSONArray jsonArray = messages.getJSONArray(type.getTypeName());
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                message = jsonObject.getString(String.format("%d", index));
 
-        try {
-            JSONArray jsonArray = messages.getJSONArray(type.getTypeName());
-            JSONObject jsonObject = jsonArray.getJSONObject(0);
-            message = jsonObject.getString(String.format("%d", index));
-        } catch (JSONException e) {
+            } catch (JSONException e) {
 
+            }
         }
-
         return message;
     }
 
