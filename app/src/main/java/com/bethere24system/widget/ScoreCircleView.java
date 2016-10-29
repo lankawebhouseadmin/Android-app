@@ -22,9 +22,11 @@ import com.bethere24system.data.StateType;
 import com.bethere24system.utils.DisplayUtils;
 import com.bethere24system.utils.RotationUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Administrator on 3/5/2016.
@@ -75,7 +77,14 @@ public class ScoreCircleView extends FrameLayout {
             mTodaysLoginDate = new ClockDate();
         } else {
             mStartOfTheDay = BeThereApplication.getInstance().getData().generalData.startOfTheDay;
-            mTodaysLoginDate = BeThereApplication.getInstance().getData().generalData.loginDate;
+            SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
+            Date loginTime;
+            try {
+                loginTime =  TIME_FORMAT.parse(BeThereApplication.getInstance().getLoginTiem());
+                mTodaysLoginDate = new ClockDate(loginTime);
+            } catch (Exception e) {
+                mTodaysLoginDate = BeThereApplication.getInstance().getData().generalData.loginDate;
+            }
         }
     }
 

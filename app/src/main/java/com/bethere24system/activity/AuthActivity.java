@@ -71,10 +71,13 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
         loginData = new LoginData(username, password); // Dennis
 
         mSubscription = BeThereService.getAuthApi().login(new LoginData(username, password))
-                .flatMap(userInfo ->{ new Prefser(AuthActivity.this).put("data", userInfo.getData());
-                                            return BeThereService.getStatesApi().getStates(userInfo.getData().getId(), userInfo.getToken())
-                                                        .subscribeOn(Schedulers.io())
-                                                        .observeOn(AndroidSchedulers.mainThread());})
+                .flatMap(userInfo ->{
+                    new Prefser(AuthActivity.this).put("data", userInfo.getData());
+                    BeThereApplication.getInstance().setLoginTime(userInfo.getData().getLoginTime());
+                    return BeThereService.getStatesApi().getStates(userInfo.getData().getId(), userInfo.getToken())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread());
+                })
                 .map(DataContainer::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

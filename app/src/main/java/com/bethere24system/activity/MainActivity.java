@@ -196,10 +196,13 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
             mHolder.progressLayout.setVisibility(View.VISIBLE);
 
             BeThereService.getAuthApi().login(loginData)
-                    .flatMap(userInfo ->{ new Prefser(MainActivity.this).put("data", userInfo.getData());
+                    .flatMap(userInfo ->{
+                        new Prefser(MainActivity.this).put("data", userInfo.getData());
+                        BeThereApplication.getInstance().setLoginTime(userInfo.getData().getLoginTime());
                         return BeThereService.getStatesApi().getStates(userInfo.getData().getId(), userInfo.getToken())
                                 .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread());})
+                                .observeOn(AndroidSchedulers.mainThread());
+                    })
                     .map(DataContainer::new)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
