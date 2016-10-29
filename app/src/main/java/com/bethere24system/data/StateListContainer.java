@@ -114,10 +114,19 @@ public class StateListContainer {
         List<State> correctStates = new ArrayList<>();
         if (type == StateType.SLEEPING) {
 
-            for (State state : arr.get(date.getTime())) {
-                if (state.startTime.getHours() < NORMAL_TIME)
-                    correctStates.add(state);
+            for (int i = 0; i < arr.size(); i++) {
+                Object state = arr.get(date.getTime());
+                if ((state != null) && (state instanceof State)){
+                    if (((State)state).startTime.getHours() < NORMAL_TIME) {
+                        correctStates.add(((State)state));
+                    }
+                }
+
             }
+//            for (State state : arr.get(date.getTime())) {
+//                if (state.startTime.getHours() < NORMAL_TIME)
+//                    correctStates.add(state);
+//            }
 
             if (mDays.indexOf(date) > 0) {
                 List<State> arrState = arr.get(getPrevDate(date).getTime());

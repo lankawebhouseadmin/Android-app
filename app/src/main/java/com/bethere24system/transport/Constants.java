@@ -6,7 +6,7 @@ package com.bethere24system.transport;
 public class Constants {
 
     public static final String HOST = "http://staging.noostore.com:80";
-//    public static final String HOST = "http://noostore.com:80";
+//    public static final String HOST = "http://uat.noostore.com:80";
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     public static final String messages =

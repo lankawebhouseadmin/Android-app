@@ -59,11 +59,14 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
         Alert alert = mAlerts.get(position);
 
-        holder.icon.setImageResource(alert.stateType.getSmallWhiteIconRes());
-        holder.icon.setBackgroundColor(alert.stateType.getColor(holder.icon.getContext()));
-        holder.title.setTextColor(alert.stateType.getColor(holder.title.getContext()));
+        StateType stateType = alert.stateType;
+        if (stateType != null) {
+            holder.icon.setImageResource(stateType.getSmallWhiteIconRes());
+            holder.icon.setBackgroundColor(stateType.getColor(holder.icon.getContext()));
+            holder.title.setTextColor(stateType.getColor(holder.title.getContext()));
 
-        holder.title.setText(alert.stateType.getTitleRes());
+            holder.title.setText(stateType.getTitleRes());
+        }
 
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
         String strTime = String.format("%d/%d/%d\n%d:%d %s", alert.time.getMonth() + 1, alert.time.getDate(), alert.time.getYear() + 1900,
@@ -127,7 +130,11 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
     }
 
     public void addItem(int position, Alert model) {
-        mAlerts.add(position, model);
+        if (position > mAlerts.size()) {
+            mAlerts.add(model);
+        } else {
+            mAlerts.add(position, model);
+        }
         notifyItemInserted(position);
     }
 

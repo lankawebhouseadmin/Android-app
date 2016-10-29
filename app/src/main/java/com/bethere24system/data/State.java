@@ -7,7 +7,6 @@ import com.bethere24system.transport.data.StateItem;
 import com.bethere24system.utils.ConvertUtils;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -63,12 +62,14 @@ public class State {
         totalTime = stateItem.getTotalTime();
 
         Date time;
+        /*
         try {
             time = TIME_FORMAT.parse("");
         } catch (ParseException e) {
             e.printStackTrace();
             time = new Date();
         }
+        */
 //        this.time = time;
         time = startTime;
         this.time = time;

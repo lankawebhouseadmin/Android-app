@@ -59,7 +59,8 @@ public class StateCircleView extends FrameLayout {
 
         mDisplayWidth = DisplayUtils.getDisplaySize(getContext()).x;
 
-        for (int i = 0; i < StateType.values().length; i++) addToMainCircle(StateType.values()[i].getSmallWhiteIconRes(), i);
+        for (int i = 0; i < StateType.values().length; i++)
+            addToMainCircle(StateType.values()[i].getSmallWhiteIconRes(), i);
 
     }
 
@@ -178,7 +179,7 @@ public class StateCircleView extends FrameLayout {
         double radians = Math.toRadians(angleRotateCirclePart);
         int size = mDisplayWidth * PERCENT_CIRCLE_SIZE / 100;
         int sizePart = mDisplayWidth * PERCENT_PART_CIRCLE_SIZE / 100;
-        int x = size / 2 + (int) (Math.sin(radians) * size / 3) - sizePart / 2;
+        int x = size / 2 + (int) (Math.sin(radians) * size / 3) - sizePart / 18 * 10;
         return x;
     }
 
@@ -186,7 +187,7 @@ public class StateCircleView extends FrameLayout {
         double radians = Math.toRadians(angleRotateCirclePart);
         int size = mDisplayWidth * PERCENT_CIRCLE_SIZE / 100;
         int sizePart = mDisplayWidth * PERCENT_PART_CIRCLE_SIZE / 100;
-        int y = size / 2 - (int) (Math.cos(radians) * size / 3) - sizePart / 2;
+        int y = size / 2 - (int) (Math.cos(radians) * size / 3) - sizePart / 18 * 10;
         return y;
     }
 
