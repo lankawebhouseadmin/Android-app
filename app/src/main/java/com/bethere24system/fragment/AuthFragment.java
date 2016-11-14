@@ -1,6 +1,8 @@
 package com.bethere24system.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,8 @@ import android.widget.EditText;
 import com.bethere24system.BuildConfig;
 import com.bethere24system.R;
 
+import static com.bethere24system.activity.AuthActivity.MYPREFS;
+
 /**
  * Created by Administrator on 3/5/2016.
  */
@@ -21,6 +25,8 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
 
     private ViewHolder mHolder;
     private Listener mListener;
+    private String savedUsername = "";
+    private String savedPassword = "";
 
     @Override
     public void onAttach(Context context) {
@@ -39,6 +45,11 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
         if (BuildConfig.DEBUG) {
             mHolder.username.setText(""); // ben_goldberg
             mHolder.password.setText(""); // ben1234
+        }
+
+        if (loadPreferences()){
+            mHolder.username.setText(savedUsername);
+            mHolder.password.setText(savedPassword);
         }
 
         return mHolder.root;
@@ -105,6 +116,21 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
             signIn = root.findViewById(R.id.signIn);
             progress = root.findViewById(R.id.progress);
         }
+    }
+
+    public boolean loadPreferences() {
+
+        int mode = Activity.MODE_PRIVATE;
+        SharedPreferences mySharedPreferences = getActivity().getSharedPreferences(MYPREFS,
+                mode);
+        // Retrieve the saved values.
+        boolean flag = mySharedPreferences.getBoolean("isSetting", false);
+        if (flag == true){
+            savedUsername = mySharedPreferences.getString("username", "");
+            savedPassword = mySharedPreferences.getString("userpass", "");
+        }
+        return flag;
+
     }
 
 }

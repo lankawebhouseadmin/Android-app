@@ -15,10 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bethere24system.BeThereApplication;
 import com.bethere24system.BuildConfig;
@@ -283,4 +285,16 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                //����ǰ������ҳ�����ȷ�����ҳ
+                return false;
+            default:
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

@@ -38,7 +38,7 @@ import java.util.Locale;
  */
 public class HealthScoreFragment extends Fragment implements View.OnClickListener, ScoreCircleView.Listener, FilterView.Listener {
 
-    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a", Locale.UK);
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("MM/dd hh:mm a", Locale.UK);
     private static final SimpleDateFormat DAYOFWEEK_FORMAT = new SimpleDateFormat("EEE", Locale.UK);
     private static final String TIME_PATTERN = "<b>Normal:</b> %s, <b>Total:</b> %s";
     private static final String DURATION_PATTERN = "<b>From:</b> %s, <b>To:</b> %s, <b>Actual:</b> %s";

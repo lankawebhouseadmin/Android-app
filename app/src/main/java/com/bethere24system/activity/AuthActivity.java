@@ -1,6 +1,8 @@
 package com.bethere24system.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -30,6 +32,7 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
 
     private Subscription mSubscription;
     private AuthFragment mAuthFragment;
+    public static final String MYPREFS="mySharedPreferences";
 
     LoginData loginData; // Dennis
 
@@ -144,6 +147,7 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
 
         intent.putExtra("username", loginData.username); // Dennis
         intent.putExtra("password", loginData.password); // Dennis
+        savePreferences();
 
         startActivity(intent);
         finish();
@@ -160,6 +164,19 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
     protected void onDestroy() {
         if (mSubscription != null) mSubscription.unsubscribe();
         super.onDestroy();
+    }
+
+
+
+
+    public void savePreferences(){
+        int mode = Activity.MODE_PRIVATE;
+        SharedPreferences mySharedPreferences = getSharedPreferences(MYPREFS, mode);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        editor.putString("username", loginData.username);
+        editor.putString("userpass", loginData.password);
+        editor.putBoolean("isSetting", true);
+        editor.commit();
     }
 
 }
