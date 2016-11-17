@@ -20,16 +20,14 @@ import com.bethere24system.data.State;
 import com.bethere24system.data.StateListContainer;
 import com.bethere24system.data.StateType;
 import com.bethere24system.utils.ConvertUtils;
-import com.bethere24system.utils.SwitchUtils;
 import com.bethere24system.widget.FilterView;
 import com.bethere24system.widget.ScoreCircleView;
 import com.bethere24system.transport.data.Data;
 import com.github.pwittchen.prefser.library.Prefser;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,7 +36,7 @@ import java.util.Locale;
  */
 public class HealthScoreFragment extends Fragment implements View.OnClickListener, ScoreCircleView.Listener, FilterView.Listener {
 
-    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("MM/dd hh:mm a", Locale.UK);
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a", Locale.UK);
     private static final SimpleDateFormat DAYOFWEEK_FORMAT = new SimpleDateFormat("EEE", Locale.UK);
     private static final String TIME_PATTERN = "<b>Normal:</b> %s, <b>Total:</b> %s";
     private static final String DURATION_PATTERN = "<b>From:</b> %s, <b>To:</b> %s, <b>Actual:</b> %s";
@@ -169,10 +167,32 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
     private String convertDate(Date date) {
 
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, -1);
+        Date prevDate = cal.getTime();
+
         int month = date.getMonth() + 1;
         int day = date.getDate();
 
-        return String.format("%d/%d - %s.", month, day, DAYOFWEEK_FORMAT.format(date));
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
+        Date loginTime;
+        try {
+            loginTime =  timeFormat.parse(BeThereApplication.getInstance().getLoginTime());
+        } catch (Exception e) {
+            loginTime = new Date();
+        }
+        timeFormat = new SimpleDateFormat("hh:mm a", Locale.UK);
+        String timeString = timeFormat.format(loginTime);
+
+        int prevMonth = prevDate.getMonth() + 1;
+        int prevDay = prevDate.getDate();
+//        String loginTime = BeThereApplication.getInstance().getLoginTime();
+//        String time = loginTime.substring(11, 16);
+
+        String headerTitle = String.format("%d/%d %s to %d/%d %s", prevMonth, prevDay, timeString, month, day, timeString);
+
+        return headerTitle; //String.format("%d/%d - %s.", month, day, DAYOFWEEK_FORMAT.format(date));
     }
 
     private String getTotalTime(StateType type, Date date) {
@@ -182,8 +202,9 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         List<State> states = mStateListContainer.getStates(type, date);
 
         if (states != null) {
-            for (State state : states)
+            for (State state : states) {
                 total += state.actualTime;
+            }
         }
 
         return ConvertUtils.convertFromMinutesToHours(total);

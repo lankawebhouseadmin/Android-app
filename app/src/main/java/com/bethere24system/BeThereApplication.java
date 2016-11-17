@@ -85,7 +85,7 @@ public class BeThereApplication extends Application {
         this.mLoginTime = loginTime;
     }
 
-    public String getLoginTiem() {
+    public String getLoginTime() {
         return this.mLoginTime;
     }
 

@@ -37,6 +37,7 @@ import com.bethere24system.transport.BeThereService;
 import com.bethere24system.transport.data.LoginData;
 import com.github.pwittchen.prefser.library.Prefser;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
     private ViewHolder mHolder;
     private View mDecorView;
     private HealthSummaryFragment mCurrentSummery;
+
+    private ArrayList<Fragment> stackFragments = new ArrayList<>();
 
     LoginData loginData; // Dennis
 
@@ -92,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
         } else if (BuildConfig.BUILD_TYPE.equals("qa")) {
             mHolder.toolbar_title.setText(title + " " + "Uat");
         }
+//        mHolder.toolbar_title.setText(title + " " + "Uat");
         // end Dennis
 
         // 2016 09 23 Arik
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
                 .add(R.id.left_menu_container, new LeftMenuFragment())
                 .add(R.id.content_container, mCurrentSummery)
                 .commit();
+        stackFragments.add(0, mCurrentSummery);
     }
 
     @Override
@@ -173,14 +178,22 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
     }
 
     private void openFragment(Fragment fragment) {
+        openFragment(fragment, false);
+    }
+
+    private void openFragment(Fragment fragment, boolean goingBack) {
         onAlertCountChanged(null, null, 0, 0);
         if (getSupportFragmentManager().findFragmentById(R.id.content_container).getClass() != fragment.getClass()) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .replace(R.id.content_container, fragment)
+                    .replace(R.id.content_container, fragment, "TTT")
+//                    .addToBackStack(null)
                     .commit();
+            if (goingBack == false) {
+                stackFragments.add(0, fragment);
+            }
         }
         mHolder.drawer.closeDrawers();
     }
@@ -214,6 +227,18 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
                             this::refreshData,
                             this::onLoginError
                     );
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if (stackFragments.size() > 1) {
+            Fragment prevFragment = stackFragments.get(1);
+            openFragment(prevFragment, true);
+            stackFragments.remove(0);
+        } else {
+            openFragment(mCurrentSummery, true);
         }
     }
 
@@ -285,6 +310,7 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
 
     }
 
+    /*
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -296,5 +322,5 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
                 break;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    } */
 }

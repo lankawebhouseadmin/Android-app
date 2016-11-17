@@ -80,7 +80,7 @@ public class ScoreCircleView extends FrameLayout {
             SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
             Date loginTime;
             try {
-                loginTime =  TIME_FORMAT.parse(BeThereApplication.getInstance().getLoginTiem());
+                loginTime =  TIME_FORMAT.parse(BeThereApplication.getInstance().getLoginTime());
                 mTodaysLoginDate = new ClockDate(loginTime);
             } catch (Exception e) {
                 mTodaysLoginDate = BeThereApplication.getInstance().getData().generalData.loginDate;

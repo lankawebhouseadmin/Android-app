@@ -111,6 +111,7 @@ public class StateListContainer {
         if (type == StateType.SLEEPING) {
 
             List<State> stateList = arr.get(date.getTime());
+            if (stateList == null) return correctStates;
             for (int i = 0; i < stateList.size(); i++) {
                 Object state = stateList.get(i);
                 if ((state != null) && (state instanceof State)) {
