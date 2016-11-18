@@ -86,6 +86,7 @@ public class ScoreCircleView extends FrameLayout {
                 mTodaysLoginDate = BeThereApplication.getInstance().getData().generalData.loginDate;
             }
         }
+        mStartOfTheDay = mTodaysLoginDate;
     }
 
     public void setStates(Date currentDate, List<State> states, StateType currentType) {

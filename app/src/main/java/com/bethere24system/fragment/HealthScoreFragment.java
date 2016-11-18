@@ -162,7 +162,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         }
 
         if (mCurrentState != null)
-            mHolder.date.setText(mCurrentState.isToday ? getString(R.string.today) : convertDate(mCurrentDate));
+            mHolder.date.setText(convertDate(mCurrentDate));
     }
 
     private String convertDate(Date date) {
