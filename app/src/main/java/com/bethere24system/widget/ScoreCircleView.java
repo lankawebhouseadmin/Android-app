@@ -86,7 +86,7 @@ public class ScoreCircleView extends FrameLayout {
                 mTodaysLoginDate = BeThereApplication.getInstance().getData().generalData.loginDate;
             }
         }
-        mStartOfTheDay = mTodaysLoginDate;
+//        mStartOfTheDay = mTodaysLoginDate;
     }
 
     public void setStates(Date currentDate, List<State> states, StateType currentType) {
@@ -140,7 +140,8 @@ public class ScoreCircleView extends FrameLayout {
         mPaint.setStrokeWidth(DisplayUtils.dpToPx(2));
         mPaint.setColor(Color.GREEN);
 
-        double rads = Math.toRadians(DateUtils.isToday(mCurrentDate.getTime()) ? mTodaysLoginDate.angle : mStartOfTheDay.angle);
+//        double rads = Math.toRadians(DateUtils.isToday(mCurrentDate.getTime()) ? mTodaysLoginDate.angle : mStartOfTheDay.angle);
+        double rads = Math.toRadians(mStartOfTheDay.angle);
         float dx = (float) (getWidth() / 2f * (Math.sin(rads)));
         float dy = (float) (getWidth() / 2f * (Math.cos(rads)));
 

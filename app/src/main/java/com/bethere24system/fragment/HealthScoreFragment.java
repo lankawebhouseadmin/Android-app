@@ -184,6 +184,9 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         }
         timeFormat = new SimpleDateFormat("hh:mm a", Locale.UK);
         String timeString = timeFormat.format(loginTime);
+        if (mCurrentState.isToday == false) {
+            timeString = "6:00 am";
+        }
 
         int prevMonth = prevDate.getMonth() + 1;
         int prevDay = prevDate.getDate();
