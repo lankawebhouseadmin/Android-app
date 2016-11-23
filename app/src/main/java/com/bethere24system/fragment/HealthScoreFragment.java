@@ -169,8 +169,8 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.DATE, -1);
-        Date prevDate = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date nextDate = cal.getTime();
 
         int month = date.getMonth() + 1;
         int day = date.getDate();
@@ -188,12 +188,12 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         String timeString = "6:00 am";
 //        }
 
-        int prevMonth = prevDate.getMonth() + 1;
-        int prevDay = prevDate.getDate();
+        int nextMonth = nextDate.getMonth() + 1;
+        int nextDay = nextDate.getDate();
 //        String loginTime = BeThereApplication.getInstance().getLoginTime();
 //        String time = loginTime.substring(11, 16);
 
-        String headerTitle = String.format("%d/%d %s to %d/%d %s", prevMonth, prevDay, timeString, month, day, timeString);
+        String headerTitle = String.format("%d/%d %s to %d/%d %s", month, day, timeString, nextMonth, nextDay, timeString);
 
         return headerTitle; //String.format("%d/%d - %s.", month, day, DAYOFWEEK_FORMAT.format(date));
     }
