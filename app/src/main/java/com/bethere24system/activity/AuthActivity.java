@@ -73,7 +73,7 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
 
         loginData = new LoginData(username, password); // Dennis
 
-        mSubscription = BeThereService.getAuthApi().login(new LoginData(username, password))
+        mSubscription = BeThereService.getAuthApi().login(loginData)
                 .flatMap(userInfo ->{
                     new Prefser(AuthActivity.this).put("data", userInfo.getData());
                     BeThereApplication.getInstance().setLoginTime(userInfo.getData().getLoginTime());

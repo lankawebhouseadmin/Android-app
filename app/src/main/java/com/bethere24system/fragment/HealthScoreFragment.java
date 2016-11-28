@@ -180,12 +180,14 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
 //        timeFormat = new SimpleDateFormat("hh:mm a", Locale.UK);
         String headerTitle = "";
+        String virtualDayStartTime = new SimpleDateFormat("hh:mm a").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
+        String virtualDayStartTime00 = new SimpleDateFormat("hh:mm:ss").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
         if (mCurrentState.isToday) {
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
             Date loginTime, todayStartTime;
             try {
                 loginTime =  timeFormat.parse(BeThereApplication.getInstance().getLoginTime());
-                todayStartTime = timeFormat.parse(BeThereApplication.getInstance().getLoginTime().substring(0, 11) + "06:00:00");
+                todayStartTime = timeFormat.parse(BeThereApplication.getInstance().getLoginTime().substring(0, 11) + virtualDayStartTime00);
             } catch (Exception e) {
                 loginTime = new Date();
                 todayStartTime = new Date();
@@ -197,16 +199,16 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
             String loginTimeString = timeFormat.format(loginTime);
 
             if (loginTime.getTime() > todayStartTime.getTime()) {
-                headerTitle = String.format("%d/%d 6:00 am to %d/%d %s", month, day, month, day, loginTimeString);
+                headerTitle = String.format("%d/%d %s am to %d/%d %s", month, day, virtualDayStartTime, month, day, loginTimeString);
             } else {
                 cal.add(Calendar.DATE, -2);
                 Date prevDate = cal.getTime();
                 int prevMonth = prevDate.getMonth() + 1;
                 int prevDay = prevDate.getDate();
-                headerTitle = String.format("%d/%d 6:00 AM to %d/%d %s", prevMonth, prevDay, month, day, loginTimeString);
+                headerTitle = String.format("%d/%d %s to %d/%d %s", prevMonth, prevDay, virtualDayStartTime, month, day, loginTimeString);
             }
         } else {
-            headerTitle = String.format("%d/%d 6:00 AM to %d/%d 6:00 AM", month, day, nextMonth, nextDay);
+            headerTitle = String.format("%d/%d %s to %d/%d %s", month, day, virtualDayStartTime, nextMonth, nextDay, virtualDayStartTime);
         }
 
         return headerTitle; //String.format("%d/%d - %s.", month, day, DAYOFWEEK_FORMAT.format(date));
