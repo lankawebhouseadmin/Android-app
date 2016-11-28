@@ -138,7 +138,7 @@ public class ScoreCircleView extends FrameLayout {
 
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(DisplayUtils.dpToPx(2));
-        mPaint.setColor(Color.GREEN);
+        mPaint.setColor(Color.BLUE);
 
 //        double rads = Math.toRadians(DateUtils.isToday(mCurrentDate.getTime()) ? mTodaysLoginDate.angle : mStartOfTheDay.angle);
         double rads = Math.toRadians(mStartOfTheDay.angle);
@@ -150,6 +150,19 @@ public class ScoreCircleView extends FrameLayout {
         path.rLineTo(dx, -dy);
         path.close();
         canvas.drawPath(path, mPaint);
+
+        if (DateUtils.isToday(mCurrentDate.getTime())) {
+            mPaint.setColor(Color.GREEN);
+            rads = Math.toRadians(mTodaysLoginDate.angle);
+            dx = (float) (getWidth() / 2f * (Math.sin(rads)));
+            dy = (float) (getWidth() / 2f * (Math.cos(rads)));
+
+            Path todayPath = new Path();
+            todayPath.moveTo(getWidth()/2, getWidth()/2);
+            todayPath.rLineTo(dx, -dy);
+            todayPath.close();
+            canvas.drawPath(todayPath, mPaint);
+        }
 
         if (mStates == null || mStates.size() == 0) return;
 

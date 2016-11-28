@@ -6,8 +6,8 @@ android {
     buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.bethere24system"
-        minSdkVersion 16
-        targetSdkVersion 23
+        minSdkVersion 15
+        targetSdkVersion 20
         versionCode 1
         versionName "1.0"
     }

@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
         } else if (BuildConfig.BUILD_TYPE.equals("qa")) {
             mHolder.toolbar_title.setText(title + " " + "Uat");
         }
-//        mHolder.toolbar_title.setText(title + " " + "Uat");
+        mHolder.toolbar_title.setText(title + " " + "Uat");
 
         mCurrentSummery = new HealthSummaryFragment();
 
