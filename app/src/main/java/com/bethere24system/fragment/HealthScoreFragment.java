@@ -161,7 +161,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
             mHolder.stateRight.setVisibility(View.VISIBLE);
         }
 
-        if (mCurrentState != null)
+//        if (mCurrentState != null)
             mHolder.date.setText(convertDate(mCurrentDate));
     }
 
@@ -182,7 +182,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         String headerTitle = "";
         String virtualDayStartTime = new SimpleDateFormat("hh:mm a").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
         String virtualDayStartTime00 = new SimpleDateFormat("hh:mm:ss").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
-        if (mCurrentState.isToday) {
+        if (mCurrentState != null && mCurrentState.isToday) {
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
             Date loginTime, todayStartTime;
             try {

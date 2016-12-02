@@ -73,6 +73,7 @@
     <string name="dialog_positive_button">OK</string>
     <string name="error_title_common">Something goes wrong</string>
     <string name="error_message_common">Please, check you internet connection or try again later</string>
+    <string name="incorrect_username_password">Incorrect username or password.</string>
     <string name="bathroom">In Bathroom</string>
     <string name="visitors">With Visitors</string>
     <string name="dining">In Dining Area</string>

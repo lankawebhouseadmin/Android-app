@@ -175,7 +175,7 @@ public class HealthSummaryFragment extends Fragment implements View.OnClickListe
     @Override
     public void onStateSelected(State state) {
         mCurrentState = state;
-        if (TextUtils.isEmpty(state.message)) {
+        if (mCurrentState == null || TextUtils.isEmpty(state.message)) {
             mHolder.stateMessage.setText("No data available");
             mHolder.stateTime.setVisibility(View.INVISIBLE);
             mHolder.linkToScore.setVisibility(View.INVISIBLE);
@@ -216,10 +216,11 @@ public class HealthSummaryFragment extends Fragment implements View.OnClickListe
 
         }
 
-        mHolder.stateType.setText(state.type.getTitleRes());
-        mHolder.stateType.setTextColor(state.type.getColor(getContext()));
-        mHolder.stateType.setCompoundDrawablesRelativeWithIntrinsicBounds(state.type.getSmallIconRes(), 0, 0, 0);
-
+        if (state != null) {
+            mHolder.stateType.setText(state.type.getTitleRes());
+            mHolder.stateType.setTextColor(state.type.getColor(getContext()));
+            mHolder.stateType.setCompoundDrawablesRelativeWithIntrinsicBounds(state.type.getSmallIconRes(), 0, 0, 0);
+        }
     }
 
     public interface Listener {

@@ -1,5 +1,6 @@
 package com.bethere24system.data;
 
+import android.util.Log;
 import android.util.LongSparseArray;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class StateListContainer {
         HashMap<StateType, State> stateByType;
 
         LongSparseArray<Date> days = new LongSparseArray<>();
+        long startDayTimeInterval = Long.MAX_VALUE;
+        long endDayTimeInterval = 0;
 
         for (List<State> stateList : stateLists) {
             for (State state : stateList) {
@@ -66,6 +69,7 @@ public class StateListContainer {
                 }
                 states.add(state);
 
+                /*
                 stateByType = mStateByDayAndTime.get(state.day.getTime());
                 if (stateByType == null) {
                     stateByType = new HashMap<>();
@@ -78,16 +82,44 @@ public class StateListContainer {
                 if (stateByType.get(state.type).id == 0 || stateByType.get(state.type).score.getScore() > state.score.getScore())
                     stateByType.put(state.type, state);
 
+                    */
+
                 days.append(state.day.getTime(), state.day);
-
+                if (state.day.getTime() < startDayTimeInterval) {
+                    startDayTimeInterval = state.day.getTime();
+                }
+                if (state.day.getTime() > endDayTimeInterval) {
+                    endDayTimeInterval = state.day.getTime();
+                }
             }
-
-            mDays = new ArrayList<>(days.size());
-            for (int i = 0; i < days.size(); i++) {
-                mDays.add(days.valueAt(i));
-            }
-
         }
+
+        mDays = new ArrayList<>();
+        long keyTimeInterval = startDayTimeInterval;
+        while (keyTimeInterval <= endDayTimeInterval) {
+            mDays.add(new Date(keyTimeInterval));
+            keyTimeInterval += 3600 * 24 * 1000;
+        }
+
+        for (Date date : mDays) {
+            stateByType = new HashMap<>();
+            for (StateType stateType : StateType.values()) {
+                stateByType.put(stateType, new State(stateType, date));
+            }
+            mStateByDayAndTime.append(date.getTime(), stateByType);
+        }
+
+        for (List<State> stateList : stateLists) {
+            for (State state : stateList) {
+                stateByType = mStateByDayAndTime.get(state.day.getTime());
+                if (stateByType.get(state.type).id == 0 || stateByType.get(state.type).score.getScore() > state.score.getScore())
+                    stateByType.put(state.type, state);
+            }
+        }
+
+//        for (int i = 0; i < days.size(); i++) {
+//            mDays.add(days.valueAt(i));
+//        }
 
     }
 

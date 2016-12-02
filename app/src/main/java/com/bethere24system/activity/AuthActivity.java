@@ -119,9 +119,14 @@ public class AuthActivity extends AppCompatActivity implements AuthFragment.List
         mAuthFragment.showContent();
 
         // 2016 05 11 by Dennis
-        //showAlertMessage(R.string.error_title_common, R.string.error_message_common);
-        showAlertMessage(R.string.error_title_common, e.getMessage());
+//        showAlertMessage(R.string.error_title_common, R.string.error_message_common);
+        if (e instanceof NullPointerException) {
+            showAlertMessage(R.string.error_title_common, R.string.incorrect_username_password);
+        } else {
+            showAlertMessage(R.string.error_title_common, R.string.error_message_common);
+        }
     }
+
     private void showAlertMessage(int titleRes, int messageRes) {
         new AlertDialog.Builder(this)
                 .setTitle(titleRes)

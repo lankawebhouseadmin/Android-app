@@ -227,6 +227,7 @@ public class StateCircleView extends FrameLayout {
     }
 
     private void setCurrentState(StateType type) {
+        if (mStatesMap == null) return;
         if (!mStatesMap.get(type).equals(mCurrentState)) {
 
             mCurrentState = mStatesMap.get(type);
