@@ -2,6 +2,7 @@ package com.bethere24system.data;
 
 import android.text.format.DateUtils;
 
+import com.bethere24system.BeThereApplication;
 import com.bethere24system.transport.data.Messages;
 import com.bethere24system.transport.data.StateItem;
 import com.bethere24system.utils.ConvertUtils;
@@ -61,7 +62,7 @@ public class State {
         times = stateItem.getTimes();
         totalTime = stateItem.getTotalTime();
 
-        Date time;
+//        Date time;
         /*
         try {
             time = TIME_FORMAT.parse("");
@@ -70,8 +71,12 @@ public class State {
             time = new Date();
         } */
 //        this.time = time;
-        time = startTime;
-        this.time = time;
+//        time = startTime;
+        this.time = startTime;
+        String timeString = TIME_FORMAT.format(startTime);
+        String stateDayString = timeString.substring(0, 10);
+        String todayString = BeThereApplication.getInstance().getLoginTime().substring(0, 10);
+        isToday = stateDayString.equals(todayString);
 
         Calendar c = Calendar.getInstance();
         c.setTime(time);
@@ -80,7 +85,7 @@ public class State {
         rounded.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
         this.day = rounded.getTime();
 
-        isToday = DateUtils.isToday(day.getTime());
+//        isToday = DateUtils.isToday(day.getTime());
 
         long millis = endTime.getTime() - startTime.getTime();
         int hours = (int) millis / (1000 * 60 * 60);
@@ -145,8 +150,7 @@ public class State {
 
     private static Date getDateFromTimeStamp(long timeStamp) {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        return new java.util.Date(timeStamp * 1000);
-
+        return new Date(timeStamp * 1000);
     }
 
     @Override

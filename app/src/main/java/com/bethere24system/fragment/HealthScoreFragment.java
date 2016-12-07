@@ -36,7 +36,7 @@ import java.util.Locale;
  */
 public class HealthScoreFragment extends Fragment implements View.OnClickListener, ScoreCircleView.Listener, FilterView.Listener {
 
-    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a", Locale.UK);
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("h:mm a", Locale.UK);
     private static final SimpleDateFormat DAYOFWEEK_FORMAT = new SimpleDateFormat("EEE", Locale.UK);
     private static final String TIME_PATTERN = "<b>Normal:</b> %s, <b>Total:</b> %s";
     private static final String DURATION_PATTERN = "<b>From:</b> %s, <b>To:</b> %s, <b>Actual:</b> %s";
@@ -180,7 +180,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
 //        timeFormat = new SimpleDateFormat("hh:mm a", Locale.UK);
         String headerTitle = "";
-        String virtualDayStartTime = new SimpleDateFormat("hh:mm a").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
+        String virtualDayStartTime = new SimpleDateFormat("h:mm a").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
         String virtualDayStartTime00 = new SimpleDateFormat("hh:mm:ss").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
         if (mCurrentState != null && mCurrentState.isToday) {
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
@@ -195,7 +195,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
 //            String fullLoginTimeString = timeFormat.format(loginTime);
 //            String loginTimeString = fullLoginTimeString.substring(11, 16);
-            timeFormat = new SimpleDateFormat("hh:mm a");
+            timeFormat = new SimpleDateFormat("h:mm a");
             String loginTimeString = timeFormat.format(loginTime);
 
             if (loginTime.getTime() > todayStartTime.getTime()) {
@@ -241,8 +241,8 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         if (state == null || TextUtils.isEmpty(state.message)) {
             mHolder.stateMessage.setText("No data available");
             mHolder.stateTime.setVisibility(View.INVISIBLE);
-            mHolder.linkToHealth.setVisibility(View.INVISIBLE);
-            mHolder.linkToGraph.setVisibility(View.INVISIBLE);
+//            mHolder.linkToHealth.setVisibility(View.INVISIBLE);
+            mHolder.linkToGraph.setVisibility(View.GONE);
             mHolder.linkToAlerts.setVisibility(View.GONE);
             mHolder.stateDuration.setVisibility(View.INVISIBLE);
             mHolder.times.setVisibility(View.GONE);

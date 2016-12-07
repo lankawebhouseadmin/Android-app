@@ -49,12 +49,16 @@ public class BeThereApplication extends Application {
 
         sInstance = this;
 
+        changedHost();
+    }
+
+    public void changedHost() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
-        builder.readTimeout(10, TimeUnit.SECONDS);
-        builder.connectTimeout(5, TimeUnit.SECONDS);
+        builder.readTimeout(30, TimeUnit.SECONDS);
+        builder.connectTimeout(15, TimeUnit.SECONDS);
         if (BuildConfig.DEBUG) builder.addInterceptor(interceptor);
 
         Gson gson = new GsonBuilder()

@@ -1,7 +1,9 @@
 package com.bethere24system.fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,9 +14,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.bethere24system.BeThereApplication;
 import com.bethere24system.BuildConfig;
 import com.bethere24system.R;
+import com.bethere24system.transport.Constants;
 
 import static com.bethere24system.activity.AuthActivity.MYPREFS;
 
@@ -51,6 +56,39 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
             mHolder.username.setText(savedUsername);
             mHolder.password.setText(savedPassword);
         }
+
+        mHolder.imgviewLogo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Select Server")
+                        .setPositiveButton("Stage", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Constants.HOST = "http://staging.noostore.com:80";
+                                Constants.APP_STATE = "Dev";
+                                BeThereApplication.getInstance().changedHost();
+                            }
+                        })
+                        .setNegativeButton("UAT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Constants.HOST = "http://uat.noostore.com:80";
+                                Constants.APP_STATE = "Uat";
+                                BeThereApplication.getInstance().changedHost();
+                            }
+                        })
+                        .setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .show();
+
+                return false;
+            }
+        });
 
         return mHolder.root;
     }
@@ -102,6 +140,7 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
 
     private static final class ViewHolder {
         public final View root;
+        public final ImageView imgviewLogo;
         public final EditText username;
         public final EditText password;
         public final View forgotPassword;
@@ -110,6 +149,7 @@ public class AuthFragment extends Fragment implements View.OnClickListener {
 
         public ViewHolder(View root) {
             this.root = root;
+            imgviewLogo = (ImageView) root.findViewById(R.id.imgview_logo);
             username = (EditText) root.findViewById(R.id.username);
             password = (EditText) root.findViewById(R.id.password);
             forgotPassword = root.findViewById(R.id.forgotPassword);

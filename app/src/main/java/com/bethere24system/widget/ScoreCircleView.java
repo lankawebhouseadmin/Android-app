@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import static com.bethere24system.data.ClockDate.TIME_FORMAT;
+
 /**
  * Created by Administrator on 3/5/2016.
  */
@@ -151,7 +153,15 @@ public class ScoreCircleView extends FrameLayout {
         path.close();
         canvas.drawPath(path, mPaint);
 
-        if (DateUtils.isToday(mCurrentDate.getTime())) {
+
+        String timeString = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.UK)).format(mCurrentDate);
+        String stateDayString = timeString.substring(0, 10);
+        String todayString = BeThereApplication.getInstance().getLoginTime().substring(0, 10);
+        boolean isToday = stateDayString.equals(todayString);
+
+
+//        if (DateUtils.isToday(mCurrentDate.getTime())) {
+        if (isToday) {
             mPaint.setColor(Color.GREEN);
             rads = Math.toRadians(mTodaysLoginDate.angle);
             dx = (float) (getWidth() / 2f * (Math.sin(rads)));

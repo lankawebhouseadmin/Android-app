@@ -34,6 +34,7 @@ import com.bethere24system.fragment.HealthScoreFragment;
 import com.bethere24system.fragment.HealthSummaryFragment;
 import com.bethere24system.fragment.LeftMenuFragment;
 import com.bethere24system.transport.BeThereService;
+import com.bethere24system.transport.Constants;
 import com.bethere24system.transport.data.LoginData;
 import com.github.pwittchen.prefser.library.Prefser;
 
@@ -90,12 +91,13 @@ public class MainActivity extends AppCompatActivity implements LeftMenuFragment.
 
         String title = getResources().getString(R.string.app_name_tm);
 //        if (BuildConfig.BUILD_TYPE.equals("debug")) mHolder.toolbar_title.setText(title + " " + "Dev");
+        /*
         if (BuildConfig.BUILD_TYPE.equals("debug")) {
             mHolder.toolbar_title.setText(title + " " + "Dev");
         } else if (BuildConfig.BUILD_TYPE.equals("qa")) {
             mHolder.toolbar_title.setText(title + " " + "Uat");
-        }
-        mHolder.toolbar_title.setText(title + " " + "Uat");
+        } */
+        mHolder.toolbar_title.setText(title + Constants.APP_STATE);
 
         mCurrentSummery = new HealthSummaryFragment();
 
