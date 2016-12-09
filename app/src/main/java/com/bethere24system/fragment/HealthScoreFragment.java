@@ -1,6 +1,8 @@
 package com.bethere24system.fragment;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -178,12 +180,16 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
         int nextMonth = nextDate.getMonth() + 1;
         int nextDay = nextDate.getDate();
 
-//        timeFormat = new SimpleDateFormat("hh:mm a", Locale.UK);
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
         String headerTitle = "";
         String virtualDayStartTime = new SimpleDateFormat("h:mm a").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
         String virtualDayStartTime00 = new SimpleDateFormat("hh:mm:ss").format(BeThereApplication.getInstance().getData().generalData.startOfTheDay.date);
-        if (mCurrentState != null && mCurrentState.isToday) {
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
+
+        if (timeFormat.format(new Date()).equals(timeFormat.format(date))) {
+
+
+//        if (mCurrentState != null && mCurrentState.isToday) {
+            timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.UK);
             Date loginTime, todayStartTime;
             try {
                 loginTime =  timeFormat.parse(BeThereApplication.getInstance().getLoginTime());
@@ -199,7 +205,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
             String loginTimeString = timeFormat.format(loginTime);
 
             if (loginTime.getTime() > todayStartTime.getTime()) {
-                headerTitle = String.format("%d/%d %s am to %d/%d %s", month, day, virtualDayStartTime, month, day, loginTimeString);
+                headerTitle = String.format("%d/%d %s to %d/%d %s", month, day, virtualDayStartTime, month, day, loginTimeString);
             } else {
                 cal.add(Calendar.DATE, -2);
                 Date prevDate = cal.getTime();
@@ -297,6 +303,7 @@ public class HealthScoreFragment extends Fragment implements View.OnClickListene
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onStateTypeSelected(StateType type) {
         mStateType = type;
